@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Globe, Shield, Landmark, Users, MapPin } from "lucide-react";
+import { Globe, Shield, Landmark, Users, MapPin, Coins } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -60,10 +60,10 @@ const selectedConvenings = [
   "Royal Family Exchange — Riyadh, Jeddah, Dubai, Abu Dhabi 2025",
   "Healthcare & Cryopreservation — Beijing 2025",
   "United Nations & CERN VIP Tour — Geneva 2025",
-  "“Above the Grid” — Monaco 2025",
-  "ARCHITECT x Emissary Partners “The Lunch” — Singapore 2025",
-  "“The Andes & The Steppe” — Patagonia 2025",
-  "“The Hollywood Table” — Los Angeles 2026",
+  "Above the Grid — Monaco 2025",
+  "ARCHITECT x Emissary Partners The Lunch — Singapore 2025",
+  "The Andes & The Steppe — Patagonia 2025",
+  "The Hollywood Table — Los Angeles 2026",
 ];
 
 const upcomingConvenings = [
@@ -128,13 +128,13 @@ const adviseWork = [
       },
       {
         name: "Zama",
-        href: "#",
-        text: "Institutional-grade Fully Homomorphic Encryption (FHE)",
+        href: "https://www.zama.org/",
+        text: "Institutional-grade open-source Fully Homomorphic Encryption (FHE)",
       },
       {
         name: "Cosmos Labs",
-        href: "#",
-        text: "Sovereign & Central Bank Piloting",
+        href: "https://cosmos.network/",
+        text: "Sovereign & Central Bank Pilot",
       },
     ],
   },
@@ -258,7 +258,7 @@ export default function Page() {
                     </h2>
                   </div>
 
-                  <p className="max-w-xl text-xs uppercase leading-6 tracking-[0.28em] text-neutral-500">
+                  <p className="max-w-xl text-xs uppercase leading-6 tracking-[0.28em] text-neutral-700">
                     {item.text}
                   </p>
                 </div>
@@ -294,7 +294,7 @@ export default function Page() {
                     className="border border-neutral-900/10 p-6"
                   >
                     <p className="mb-3 text-lg font-bold">{item.title}</p>
-                    <p className="text-sm italic leading-7 text-neutral-600">
+                    <p className="text-sm leading-7 text-neutral-600">
                       {item.text}
                     </p>
                   </div>
@@ -349,11 +349,14 @@ export default function Page() {
                 </h2>
               </div>
 
-              <div className="space-y-6">
+              <div className="grid gap-6 md:grid-cols-2">
                 {stewardWork.map((item) => (
-                  <p key={item} className="text-lg font-bold leading-8">
-                    {item}
-                  </p>
+                  <div
+                    key={item}
+                    className="border border-neutral-900/10 p-6"
+                  >
+                    <p className="text-sm leading-7 text-neutral-600">{item}</p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -389,7 +392,7 @@ export default function Page() {
                             {item.name}
                           </a>
 
-                          <p className="text-sm italic leading-7 text-neutral-600">
+                          <p className="text-sm leading-7 text-neutral-600">
                             {item.text}
                           </p>
                         </div>
@@ -414,7 +417,7 @@ export default function Page() {
                   [Coming Soon] Digital Public Economies Fellowship
                 </p>
 
-                <p className="text-sm italic leading-7 text-neutral-600">
+                <p className="text-sm leading-7 text-neutral-600">
                   A curated cohort of sovereign operators & system builders
                   shaping digital public infrastructure
                 </p>
@@ -422,22 +425,75 @@ export default function Page() {
             </div>
 
             <div className="border border-neutral-900/10 p-10 md:p-14">
-              <h2 className="mb-10 text-3xl font-normal leading-[1.2] tracking-[-0.04em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-5xl">
-                Capital
-              </h2>
+              <div className="mb-10 flex items-center gap-4">
+                <Coins className="h-5 w-5 text-black" />
+
+                <h2 className="text-3xl font-normal leading-[1.2] tracking-[-0.04em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-5xl">
+                  Capital
+                </h2>
+              </div>
 
               <p className="max-w-5xl text-2xl leading-[1.3] tracking-[-0.03em]">
-                We deploy patient, long-horizon capital in service of Human
-                Progress through our sister investment company,{" "}
+                ARCHITECT deploys patient, long-horizon capital via{" "}
                 <a
                   href="https://architect.systems/"
                   target="_blank"
                   rel="noreferrer"
                   className="font-bold underline underline-offset-4"
                 >
-                  ARCHITECT
+                  Architect Systems Capital Management
                 </a>
-                .
+                , a Swiss-regulated investment manager focused on frontier
+                technologies.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="mb-12 text-3xl font-normal leading-[1.2] tracking-[-0.04em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-5xl">
+                Our Team
+              </h2>
+
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="border border-neutral-900/10 p-6">
+                  <a
+                    href="https://www.linkedin.com/in/james-tunningley/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block text-lg font-bold underline underline-offset-4"
+                  >
+                    James Tunningley
+                  </a>
+                  <p className="mt-2 text-sm leading-7 text-neutral-600">
+                    Executive Director
+                  </p>
+                </div>
+
+                <div className="border border-neutral-900/10 p-6">
+                  <a
+                    href="https://www.linkedin.com/in/rgjamenyogbo/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block text-lg font-bold underline underline-offset-4"
+                  >
+                    Ruben Amenyogbo
+                  </a>
+                  <p className="mt-2 text-sm leading-7 text-neutral-600">
+                    Director
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-10 max-w-3xl text-sm leading-7 text-neutral-600">
+                Our{" "}
+                <a
+                  href="https://architect.systems/people"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-bold underline underline-offset-4"
+                >
+                  Advisors
+                </a>{" "}
+                are outstanding leaders in their respective fields.
               </p>
             </div>
           </div>
@@ -471,7 +527,7 @@ export default function Page() {
       </section>
 
       <footer className="mx-auto flex max-w-7xl justify-between border-t border-neutral-900/10 px-6 py-8 text-xs uppercase tracking-[0.22em] text-neutral-500 md:px-12 lg:px-20">
-        <span>(c) The Architect Institute 2026</span>
+        <span>© The Architect Institute 2026</span>
         <span>Quiet Authority</span>
       </footer>
     </main>
