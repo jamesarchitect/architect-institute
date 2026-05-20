@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Globe, Shield, Landmark, Users, MapPin } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -9,16 +10,26 @@ const fadeUp = {
 };
 
 const whatWeDo = [
-  ["I. CONVENE", "Closed, high-trust rooms for alignment & shared direction"],
-  [
-    "II. STEWARD",
-    "Long-arc signal work — strategic intelligence, research, policy shaping, & blueprint development",
-  ],
-  [
-    "III. ADVISE",
-    "Applied sovereign & strategic deployment embedded in live systems",
-  ],
-  ["IV. CULTIVATE", "Future leadership for an era of systemic transition"],
+  {
+    title: "Convene",
+    icon: Globe,
+    text: "Closed, high-trust rooms for alignment & shared direction",
+  },
+  {
+    title: "Steward",
+    icon: Shield,
+    text: "Long-arc signal work — strategic intelligence, research, policy shaping, & blueprint development",
+  },
+  {
+    title: "Advise",
+    icon: Landmark,
+    text: "Applied sovereign & strategic deployment embedded in live systems",
+  },
+  {
+    title: "Cultivate",
+    icon: Users,
+    text: "Future leadership for an era of systemic transition",
+  },
 ];
 
 const conveneFormats = [
@@ -47,7 +58,7 @@ const upcomingConvenings = [
 ];
 
 const stewardWork = [
-  "Research, education, policy briefs and guidance artefacts",
+  "Research, education, policy briefs & guidance artefacts",
   "Signal-focused Statements, Letters, & Op-Eds",
 ];
 
@@ -60,28 +71,66 @@ const adviseWork = [
   {
     category: "Field Stewardship",
     items: [
-      "Protocol Labs — Field-Building, Governance & Economies",
-      "Edge City — Real-world experimentation at the frontiers of technology, science, and culture",
+      {
+        name: "Protocol Labs",
+        href: "https://www.plresearch.org/areas/economies-governance",
+        text: "Field-Building — Governance & Economies",
+      },
+      {
+        name: "Edge City",
+        href: "https://www.edgecity.live/",
+        text: "Real-world experimentation at the frontiers of technology, science, & culture",
+      },
     ],
   },
   {
-    category: "Multilaterals / IFIs",
-    items: ["UNDP AltFinLab — Pilot-to-deployment engine"],
+    category: "Multilaterals & IFIs",
+    items: [
+      {
+        name: "UNDP AltFinLab",
+        href: "https://innovation.eurasia.undp.org/altfinlab/",
+        text: "Pilot-to-deployment engine",
+      },
+    ],
   },
   {
     category: "Governments, Zones, Movements",
     items: [
-      "Crecimiento — Transforming Argentina",
-      "Anden — The first Digital SEZ in an emerging market",
-      "Government of Bhutan — Strategic advisory",
+      {
+        name: "Crecimiento",
+        href: "https://www.crecimiento.build/",
+        text: "Transforming Argentina",
+      },
+      {
+        name: "Anden",
+        href: "https://www.anden.tech/",
+        text: "The first Digital SEZ in an emerging market",
+      },
+      {
+        name: "Government of Bhutan",
+        href: "#",
+        text: "Strategic advisory",
+      },
     ],
   },
   {
     category: "Protocol-Institution Interfaces",
     items: [
-      "Funding the Commons / Commons Labs — Kenya Builder Residency",
-      "Zama — Fully Homomorphic Encryption",
-      "Cosmos Labs — Sovereign Engagement",
+      {
+        name: "Funding the Commons / Commons Labs",
+        href: "https://commonslab.ai/",
+        text: "Kenya Builder Residency",
+      },
+      {
+        name: "Zama",
+        href: "#",
+        text: "Fully Homomorphic Encryption",
+      },
+      {
+        name: "Cosmos Labs",
+        href: "#",
+        text: "Sovereign Engagement",
+      },
     ],
   },
 ];
@@ -92,7 +141,7 @@ const cultivateWork = [
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-mono text-xs uppercase tracking-[0.28em] text-neutral-500">
+    <p className="text-xs uppercase tracking-[0.28em] text-neutral-500">
       {children}
     </p>
   );
@@ -102,11 +151,29 @@ function Divider() {
   return <div className="my-16 h-px w-full bg-neutral-900/10" />;
 }
 
+function WorkTitle({
+  title,
+  icon: Icon,
+}: {
+  title: string;
+  icon: React.ElementType;
+}) {
+  return (
+    <div className="mb-10 flex items-center gap-3">
+      <Icon className="h-4 w-4 text-black" />
+      <h2 className="text-sm font-bold uppercase tracking-[0.24em] text-black">
+        {title}
+      </h2>
+    </div>
+  );
+}
+
 export default function Page() {
   return (
-    <main className="min-h-screen bg-[#f8f7f2] px-6 py-8 text-[#111] md:px-12 lg:px-20">
-      <header className="mx-auto flex max-w-7xl items-center justify-between border-b border-neutral-900/10 pb-6 font-mono text-xs uppercase tracking-[0.22em]">
+    <main className="min-h-screen bg-[#f8f7f2] px-6 py-8 text-[#111] [font-family:'Courier_New',monospace] md:px-12 lg:px-20">
+      <header className="mx-auto flex max-w-7xl items-center justify-between border-b border-neutral-900/10 pb-6 text-xs uppercase tracking-[0.22em]">
         <div>The Architect Institute</div>
+
         <nav className="hidden gap-8 text-neutral-500 md:flex">
           <a href="#thesis" className="hover:text-neutral-900">
             Thesis
@@ -117,7 +184,10 @@ export default function Page() {
           <a href="#our-work" className="hover:text-neutral-900">
             Our Work
           </a>
-          <a href="mailto:contact@architect.markets" className="hover:text-neutral-900">
+          <a
+            href="mailto:contact@architect.markets"
+            className="hover:text-neutral-900"
+          >
             Contact
           </a>
         </nav>
@@ -131,11 +201,11 @@ export default function Page() {
           transition={{ duration: 0.65 }}
           className="max-w-5xl"
         >
-          <p className="mb-8 font-mono text-xs uppercase tracking-[0.34em] text-neutral-500">
+          <p className="mb-8 text-xs uppercase tracking-[0.34em] text-neutral-500">
             Quiet Authority
           </p>
 
-          <h1 className="max-w-6xl text-5xl font-normal leading-[0.95] tracking-[-0.06em] md:text-7xl lg:text-8xl">
+          <h1 className="max-w-6xl text-5xl font-normal leading-[0.95] tracking-[-0.06em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-7xl lg:text-8xl">
             A long-horizon institute shaping the future of institutions,
             technology, governance, & society.
           </h1>
@@ -149,16 +219,16 @@ export default function Page() {
           <SectionLabel>Core Thesis</SectionLabel>
 
           <div className="max-w-4xl space-y-8">
-            <p className="text-2xl leading-[1.35] tracking-[-0.03em] md:text-4xl">
+            <p className="text-2xl leading-[1.35] tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-4xl">
               We are entering an era of extraordinary technological acceleration
-              alongside deep institutional fragmentation and loss of trust.
+              alongside deep institutional fragmentation & loss of trust.
             </p>
 
             <p className="max-w-3xl text-lg leading-8 text-neutral-700 md:text-xl md:leading-9">
               The Architect Institute convenes exceptional people, advises
-              consequential organisations, and cultivates long-term networks
+              consequential organisations, & cultivates long-term networks
               shaping the future of leadership, governance, technology, capital,
-              and society.
+              & society.
             </p>
           </div>
         </div>
@@ -171,19 +241,27 @@ export default function Page() {
           <SectionLabel>What We Do</SectionLabel>
 
           <div className="grid gap-10">
-            {whatWeDo.map(([title, text]) => (
-              <div
-                key={title}
-                className="grid gap-4 border-b border-neutral-900/10 pb-10 md:grid-cols-[0.3fr_1fr]"
-              >
-                <h2 className="font-mono text-sm uppercase tracking-[0.22em]">
-                  {title}
-                </h2>
-                <p className="max-w-2xl text-2xl leading-[1.25] tracking-[-0.03em] md:text-3xl">
-                  {text}
-                </p>
-              </div>
-            ))}
+            {whatWeDo.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.title}
+                  className="grid gap-4 border-b border-neutral-900/10 pb-10 md:grid-cols-[0.3fr_1fr]"
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon className="h-4 w-4 text-black" />
+                    <h2 className="text-sm font-bold uppercase tracking-[0.22em] text-black">
+                      {item.title}
+                    </h2>
+                  </div>
+
+                  <p className="max-w-2xl text-2xl leading-[1.25] tracking-[-0.03em] md:text-3xl">
+                    {item.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -196,13 +274,11 @@ export default function Page() {
 
           <div className="space-y-24">
             <div>
-              <h2 className="mb-10 font-mono text-sm uppercase tracking-[0.24em]">
-                I. Convene
-              </h2>
+              <WorkTitle title="Convene" icon={Globe} />
 
               <div className="mb-12 grid gap-4">
                 {conveneFormats.map((item) => (
-                  <p key={item} className="border-b border-neutral-900/10 pb-4 text-lg">
+                  <p key={item} className="text-lg leading-7">
                     {item}
                   </p>
                 ))}
@@ -210,27 +286,37 @@ export default function Page() {
 
               <div className="grid gap-12 md:grid-cols-2">
                 <div>
-                  <h3 className="mb-6 font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
+                  <h3 className="mb-6 text-xs uppercase tracking-[0.24em] text-neutral-500">
                     Selected Convenings
                   </h3>
+
                   <div className="space-y-4">
                     {selectedConvenings.map((item) => (
-                      <p key={item} className="text-sm leading-6 text-neutral-700">
-                        {item}
-                      </p>
+                      <div
+                        key={item}
+                        className="flex items-start gap-3 text-sm leading-6 text-neutral-700"
+                      >
+                        <MapPin className="mt-1 h-3 w-3 shrink-0 text-neutral-400" />
+                        <p>{item}</p>
+                      </div>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="mb-6 font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
+                  <h3 className="mb-6 text-xs uppercase tracking-[0.24em] text-neutral-500">
                     Upcoming Convenings
                   </h3>
+
                   <div className="space-y-4">
                     {upcomingConvenings.map((item) => (
-                      <p key={item} className="text-sm leading-6 text-neutral-700">
-                        {item}
-                      </p>
+                      <div
+                        key={item}
+                        className="flex items-start gap-3 text-sm leading-6 text-neutral-700"
+                      >
+                        <MapPin className="mt-1 h-3 w-3 shrink-0 text-neutral-400" />
+                        <p>{item}</p>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -238,19 +324,17 @@ export default function Page() {
             </div>
 
             <div>
-              <h2 className="mb-10 font-mono text-sm uppercase tracking-[0.24em]">
-                II. Steward
-              </h2>
+              <WorkTitle title="Steward" icon={Shield} />
 
               <div className="mb-12 grid gap-4">
                 {stewardWork.map((item) => (
-                  <p key={item} className="border-b border-neutral-900/10 pb-4 text-lg">
+                  <p key={item} className="text-lg leading-7">
                     {item}
                   </p>
                 ))}
               </div>
 
-              <h3 className="mb-6 font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
+              <h3 className="mb-6 text-xs uppercase tracking-[0.24em] text-neutral-500">
                 Selected Work
               </h3>
 
@@ -264,9 +348,7 @@ export default function Page() {
             </div>
 
             <div>
-              <h2 className="mb-10 font-mono text-sm uppercase tracking-[0.24em]">
-                III. Advise
-              </h2>
+              <WorkTitle title="Advise" icon={Landmark} />
 
               <div className="space-y-12">
                 {adviseWork.map((group) => (
@@ -274,13 +356,22 @@ export default function Page() {
                     key={group.category}
                     className="grid gap-6 border-b border-neutral-900/10 pb-10 md:grid-cols-[0.32fr_1fr]"
                   >
-                    <h3 className="font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
+                    <h3 className="text-xs uppercase tracking-[0.22em] text-neutral-500">
                       {group.category}
                     </h3>
+
                     <div className="space-y-4">
                       {group.items.map((item) => (
-                        <p key={item} className="text-lg leading-7">
-                          {item}
+                        <p key={item.name} className="text-lg leading-7">
+                          <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="font-bold text-black underline underline-offset-4"
+                          >
+                            {item.name}
+                          </a>{" "}
+                          — {item.text}
                         </p>
                       ))}
                     </div>
@@ -290,11 +381,9 @@ export default function Page() {
             </div>
 
             <div>
-              <h2 className="mb-10 font-mono text-sm uppercase tracking-[0.24em]">
-                IV. Cultivate
-              </h2>
+              <WorkTitle title="Cultivate" icon={Users} />
 
-              <h3 className="mb-6 font-mono text-xs uppercase tracking-[0.24em] text-neutral-500">
+              <h3 className="mb-6 text-xs uppercase tracking-[0.24em] text-neutral-500">
                 Selected Work
               </h3>
 
@@ -306,6 +395,26 @@ export default function Page() {
                 ))}
               </div>
             </div>
+
+            <div>
+              <h2 className="mb-10 text-sm font-bold uppercase tracking-[0.24em] text-black">
+                Capital
+              </h2>
+
+              <p className="max-w-4xl text-2xl leading-[1.3] tracking-[-0.03em]">
+                We deploy patient, long-horizon capital in service of Human
+                Progress through our sister investment company,{" "}
+                <a
+                  href="https://architect.systems/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-bold text-black underline underline-offset-4"
+                >
+                  ARCHITECT
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -314,18 +423,18 @@ export default function Page() {
         <Divider />
 
         <div className="grid gap-12 md:grid-cols-[0.35fr_1fr]">
-          <SectionLabel>Begin</SectionLabel>
+          <div />
 
-          <div>
-            <p className="max-w-5xl text-4xl leading-[1.05] tracking-[-0.05em] md:text-6xl">
+          <div className="space-y-16">
+            <p className="max-w-5xl text-4xl leading-[1.05] tracking-[-0.05em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-6xl">
               A trusted global node for coordination between leadership,
-              technology, governance, capital, and culture during a period of
+              technology, governance, capital, & culture during a period of
               civilizational transition.
             </p>
 
             <a
               href="mailto:contact@architect.markets"
-              className="mt-12 inline-block font-mono text-xs uppercase tracking-[0.24em] text-neutral-600 hover:text-neutral-950"
+              className="inline-block text-sm text-neutral-600 hover:text-black"
             >
               contact@architect.markets
             </a>
@@ -333,7 +442,7 @@ export default function Page() {
         </div>
       </section>
 
-      <footer className="mx-auto mt-24 flex max-w-7xl justify-between border-t border-neutral-900/10 py-8 font-mono text-xs uppercase tracking-[0.22em] text-neutral-500">
+      <footer className="mx-auto mt-24 flex max-w-7xl justify-between border-t border-neutral-900/10 py-8 text-xs uppercase tracking-[0.22em] text-neutral-500">
         <span>© The Architect Institute</span>
         <span>Quiet Authority</span>
       </footer>
