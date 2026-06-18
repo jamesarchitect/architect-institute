@@ -39,6 +39,19 @@ const functions = [
   },
 ];
 
+const people = [
+  {
+    name: "James Tunningley",
+    role: "Executive Director",
+    href: "https://www.linkedin.com/in/james-tunningley/",
+  },
+  {
+    name: "Ruben Amenyogbo",
+    role: "Director",
+    href: "https://www.linkedin.com/in/rgjamenyogbo/",
+  },
+];
+
 export default function Page() {
   return (
     <main className="min-h-screen bg-[#f8f7f2] text-[#111] [font-family:'Courier_New',monospace]">
@@ -52,8 +65,7 @@ export default function Page() {
             <a href="#thesis">Thesis</a>
             <a href="#what-we-do">What We Do</a>
             <a href="#capital">Capital</a>
-            <a href="#team">Team</a>
-            <a href="#contact">Contact</a>
+            <Link href="/people">People</Link>
           </nav>
         </div>
       </header>
@@ -107,13 +119,13 @@ export default function Page() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="block border-b border-neutral-900/10 pb-12"
+                className="group block border-b border-neutral-900/10 pb-12"
               >
-                <h2 className="text-4xl tracking-[-0.04em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-6xl">
+                <h2 className="inline-block text-4xl tracking-[-0.04em] underline underline-offset-8 decoration-neutral-400 transition-colors group-hover:decoration-black [font-family:ui-sans-serif,system-ui,sans-serif] md:text-6xl">
                   {item.title}
                 </h2>
 
-                <p className="mt-4 max-w-2xl text-sm uppercase tracking-[0.24em] text-neutral-700">
+                <p className="mt-5 max-w-2xl text-sm uppercase tracking-[0.24em] text-neutral-700">
                   {item.description}
                 </p>
               </Link>
@@ -150,46 +162,42 @@ export default function Page() {
       </section>
 
       <section
-        id="team"
+        id="people"
         className="mx-auto max-w-7xl px-6 md:px-12 lg:px-20"
       >
         <Divider />
 
         <div className="grid gap-12 md:grid-cols-[0.25fr_1fr]">
-          <SectionLabel>Our Team</SectionLabel>
+          <SectionLabel>People</SectionLabel>
 
-          <div className="space-y-8">
-            <p>
-              <a
-                href="https://www.linkedin.com/in/james-tunningley/"
-                target="_blank"
-                className="font-bold underline underline-offset-4"
-              >
-                James Tunningley
-              </a>{" "}
-              — Executive Director
-            </p>
+          <div className="space-y-10">
+            <div className="grid gap-6 md:grid-cols-2">
+              {people.map((person) => (
+                <a
+                  key={person.name}
+                  href={person.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block border border-neutral-900/10 p-6"
+                >
+                  <p className="font-bold underline underline-offset-4">
+                    {person.name}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-neutral-600">
+                    {person.role}
+                  </p>
+                </a>
+              ))}
+            </div>
 
-            <p>
-              <a
-                href="https://www.linkedin.com/in/rgjamenyogbo/"
-                target="_blank"
-                className="font-bold underline underline-offset-4"
-              >
-                Ruben Amenyogbo
-              </a>{" "}
-              — Director
-            </p>
-
-            <p>
+            <p className="text-sm leading-7 text-neutral-600">
               Our{" "}
-              <a
-                href="https://architect.systems/people"
-                target="_blank"
+              <Link
+                href="/people"
                 className="font-bold underline underline-offset-4"
               >
                 Advisors
-              </a>{" "}
+              </Link>{" "}
               are outstanding leaders in their respective fields.
             </p>
           </div>
@@ -205,20 +213,10 @@ export default function Page() {
         <div className="grid gap-12 md:grid-cols-[0.25fr_1fr]">
           <div />
 
-          <div className="space-y-20">
-            <p className="max-w-6xl text-5xl leading-[1.02] tracking-[-0.06em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-7xl">
-              A trusted global node for coordination between leadership,
-              technology, governance, capital, & culture during a period of
-              civilizational transition.
-            </p>
-
-            <a
-              href="mailto:contact@architect.markets"
-              className="text-sm text-neutral-500"
-            >
-              contact@architect.markets
-            </a>
-          </div>
+          <p className="max-w-6xl text-5xl leading-[1.02] tracking-[-0.06em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-7xl">
+            A trusted global node for coordination during a period of
+            civilizational transition.
+          </p>
         </div>
       </section>
 
