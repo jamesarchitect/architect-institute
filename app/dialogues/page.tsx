@@ -23,10 +23,10 @@ export default function DialoguesPage() {
             <Image
               src="/images/digital-risk-dialogues-logo.png"
               alt="Digital Risk Dialogues"
-              width={940}
-              height={472}
+              width={231}
+              height={114}
               priority
-              className="mx-auto h-auto w-[min(72vw,22rem)] md:w-[min(58vw,28rem)]"
+              className="mx-auto h-auto w-[9.5rem] md:w-[11rem]"
             />
           </h1>
 
