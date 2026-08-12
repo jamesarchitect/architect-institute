@@ -11,38 +11,34 @@
   }
 }
 
-.dialogues-filmstrip-track {
-  cursor: grab;
-  user-select: none;
+.dialogues-montage-figure {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
 }
 
-.dialogues-filmstrip-track:active {
-  cursor: grabbing;
+.dialogues-montage-figure.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.dialogues-filmstrip-image {
-  pointer-events: none;
-}
-
-.dialogues-filmstrip-static {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.dialogues-filmstrip-static::-webkit-scrollbar {
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .dialogues-filmstrip-image {
-    height: auto;
-    width: 78vw;
-    max-height: none;
-  }
+.dialogues-montage-figure.dialogues-montage-static,
+.dialogues-montage-figure.dialogues-montage-static.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .dialogues-page {
     animation: none;
+  }
+
+  .dialogues-montage-figure {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
