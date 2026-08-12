@@ -55,19 +55,18 @@ export default function PeoplePage() {
 
         <div className="grid gap-4 md:grid-cols-3 md:gap-5">
           {leadership.map((person) => (
-            <div key={person.name} className="border border-black/15 p-7 md:p-8">
-              <a
-                href={person.href}
-                target="_blank"
-                rel="noreferrer"
-                className="block text-lg font-bold underline underline-offset-4"
-              >
-                {person.name}
-              </a>
+            <a
+              key={person.name}
+              href={person.href}
+              target="_blank"
+              rel="noreferrer"
+              className="block cursor-pointer border border-black/15 p-7 transition-colors hover:border-black hover:bg-neutral-50 md:p-8"
+            >
+              <p className="text-lg font-bold">{person.name}</p>
               <p className="mt-3 text-sm leading-7 text-neutral-600">
                 {person.role}
               </p>
-            </div>
+            </a>
           ))}
         </div>
       </section>
@@ -79,16 +78,15 @@ export default function PeoplePage() {
 
         <div className="grid gap-4 md:grid-cols-2 md:gap-5">
           {advisors.map((person) => (
-            <div key={person.name} className="border border-black/15 p-7 md:p-8">
-              <a
-                href={person.href}
-                target="_blank"
-                rel="noreferrer"
-                className="block text-lg font-bold underline underline-offset-4"
-              >
-                {person.name}
-              </a>
-            </div>
+            <a
+              key={person.name}
+              href={person.href}
+              target="_blank"
+              rel="noreferrer"
+              className="block cursor-pointer border border-black/15 p-7 transition-colors hover:border-black hover:bg-neutral-50 md:p-8"
+            >
+              <p className="text-lg font-bold">{person.name}</p>
+            </a>
           ))}
         </div>
       </section>

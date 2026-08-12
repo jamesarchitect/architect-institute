@@ -94,24 +94,18 @@ export default function AdvisePage() {
 
             <div className="grid gap-4 md:grid-cols-2 md:gap-5">
               {section.items.map((item) => (
-                <div
+                <a
                   key={item.name}
-                  className="border border-black/15 p-7 md:p-8"
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                  className="block cursor-pointer border border-black/15 p-7 transition-colors hover:border-black hover:bg-neutral-50 md:p-8"
                 >
-                  <a
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={
-                      item.href.startsWith("http") ? "noreferrer" : undefined
-                    }
-                    className="block text-lg font-bold underline underline-offset-4"
-                  >
-                    {item.name}
-                  </a>
+                  <p className="text-lg font-bold">{item.name}</p>
                   <p className="mt-3 text-sm leading-7 text-neutral-600">
                     {item.description}
                   </p>
-                </div>
+                </a>
               ))}
             </div>
           </section>

@@ -13,10 +13,6 @@ const conveneFormats = [
     text: "Focused, practitioner-led, framework-producing",
   },
   {
-    title: "Panels",
-    text: "Independent judgment bodies",
-  },
-  {
     title: "Delegations",
     text: "Small-group listening & exchange missions",
   },
@@ -27,23 +23,29 @@ const conveneFormats = [
 ];
 
 const selectedConvenings = [
-  "LATAM Tech Leaders — Buenos Aires 2024",
-  "Royal Family Exchange — Riyadh, Jeddah, Dubai, Abu Dhabi 2025",
-  "Healthcare & Cryopreservation — Beijing 2025",
-  "United Nations & CERN VIP Tour — Geneva 2025",
-  "Above the Grid — Monaco 2025",
-  "ARCHITECT x Emissary Partners The Lunch — Singapore 2025",
-  "The Andes & The Steppe — Patagonia 2025",
-  "The Hollywood Table — Los Angeles 2026",
-  "The Manhattan Assembly — New York 2026",
-  "The Alpine Salon — Zurich 2026",
-  "The Wimbledon Invitational — London 2026",
+  { name: "The Wimbledon Invitational", place: "London · 2026" },
+  { name: "The Alpine Salon", place: "Zurich · 2026" },
+  { name: "The Manhattan Assembly", place: "New York · 2026" },
+  { name: "The Hollywood Table", place: "Los Angeles · 2026" },
+  { name: "The Andes & The Steppe", place: "Patagonia · 2025" },
+  {
+    name: "ARCHITECT x Emissary Partners The Lunch",
+    place: "Singapore · 2025",
+  },
+  { name: "Above the Grid", place: "Monaco · 2025" },
+  { name: "United Nations & CERN VIP Tour", place: "Geneva · 2025" },
+  { name: "Healthcare & Cryopreservation", place: "Beijing · 2025" },
+  {
+    name: "Royal Family Exchange",
+    place: "Riyadh, Jeddah, Dubai, Abu Dhabi · 2025",
+  },
+  { name: "LATAM Tech Leaders", place: "Buenos Aires · 2024" },
 ];
 
-const laterThisYear = [
-  "Singapore — 2026",
-  "Land of Kings — Rajasthan 2026",
-  "Abu Dhabi — 2026",
+const upcomingConvenings = [
+  { name: "Singapore", place: "2026" },
+  { name: "Land of Kings", place: "Rajasthan · 2026" },
+  { name: "Abu Dhabi", place: "2026" },
 ];
 
 export default function ConvenePage() {
@@ -57,109 +59,96 @@ export default function ConvenePage() {
         </h1>
 
         <p className="mt-8 max-w-2xl text-lg leading-8 text-neutral-600">
-          Closed, high-trust rooms for alignment, exchange, coordination, and
+          Closed, high-trust rooms for alignment, exchange, coordination &amp;
           shared direction.
         </p>
       </div>
 
-      <div className="mt-20 grid gap-4 md:grid-cols-2 md:gap-5">
+      <div className="mt-20 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         {conveneFormats.map((item) => (
-          <div key={item.title} className="border border-black/15 p-7 md:p-8">
-            <h2 className="text-base font-bold">{item.title}</h2>
-            <p className="mt-3 text-sm leading-7 text-neutral-600">{item.text}</p>
+          <div key={item.title}>
+            <h2 className="text-xs uppercase tracking-[0.22em] text-black">
+              {item.title}
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-neutral-600">{item.text}</p>
           </div>
         ))}
       </div>
 
-      <section className="mt-28">
-        <h2 className="mb-10 text-xs uppercase tracking-[0.24em] text-neutral-500">
-          2026
-        </h2>
-
+      <section className="mt-28 md:mt-36">
         <Link href="/dialogues" className="group block">
-          <div className="mb-6 flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
-            <div>
-              <p className="text-xs uppercase tracking-[0.24em] text-neutral-500">
-                Digital Risk Dialogues
-              </p>
-              <p className="mt-2 text-sm text-neutral-600">Tahoe · 2026</p>
-            </div>
-            <p className="text-xs uppercase tracking-[0.22em] text-neutral-500 transition-colors group-hover:text-black">
-              View Dialogues →
+          <div className="mb-8">
+            <p className="text-xs uppercase tracking-[0.24em] text-black">
+              Digital Risk Dialogues
             </p>
+            <p className="mt-2 text-sm text-neutral-600">Lake Tahoe · 2026</p>
           </div>
 
-          <div className="relative overflow-hidden">
-            <Image
-              src="/images/digital-risk-dialogues/08.jpg"
-              alt="Digital Risk Dialogues at Lake Tahoe"
-              width={2048}
-              height={1365}
-              className="h-auto w-full"
-              priority
-            />
-            <Image
-              src="/images/digital-risk-dialogues-logo.png"
-              alt=""
-              width={231}
-              height={114}
-              className="pointer-events-none absolute bottom-4 left-4 h-auto w-[7.5rem] md:bottom-6 md:left-6 md:w-[9rem]"
-            />
-          </div>
+          <Image
+            src="/images/digital-risk-dialogues/03.jpg"
+            alt="Digital Risk Dialogues roundtable at Lake Tahoe"
+            width={2048}
+            height={1365}
+            className="h-auto w-full"
+            priority
+          />
+
+          <p className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-neutral-600 transition-colors group-hover:text-black">
+            View Dialogues
+            <span
+              aria-hidden
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </p>
         </Link>
-
-        <div className="mt-10 space-y-4 text-sm leading-7">
-          <p>The Alpine Salon — Zurich 2026</p>
-          <p>The Wimbledon Invitational — London 2026</p>
-        </div>
       </section>
 
-      <section className="mt-24">
-        <h2 className="mb-8 text-xs uppercase tracking-[0.24em] text-neutral-500">
-          Later this year
-        </h2>
-        <div className="space-y-4 text-sm leading-7">
-          {laterThisYear.map((item) => (
-            <p key={item}>{item}</p>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-28">
-        <h2 className="mb-8 text-xs uppercase tracking-[0.24em] text-neutral-500">
+      <section className="mt-28 md:mt-36">
+        <h2 className="mb-10 text-xs uppercase tracking-[0.24em] text-neutral-500">
           Selected Convenings
         </h2>
-        <div className="space-y-4 text-sm leading-7 text-neutral-700">
+
+        <div>
           {selectedConvenings.map((item) => (
-            <p key={item}>{item}</p>
+            <div
+              key={item.name}
+              className="flex flex-col gap-1 border-t border-black/10 py-5 md:flex-row md:items-baseline md:justify-between md:gap-8"
+            >
+              <p className="text-sm leading-6 text-black md:text-[0.95rem]">
+                {item.name}
+              </p>
+              <p className="shrink-0 text-sm text-neutral-500 md:text-right">
+                {item.place}
+              </p>
+            </div>
           ))}
+          <div className="border-t border-black/10" />
         </div>
       </section>
 
-      <section className="mt-28">
-        <h2 className="mb-8 text-xs uppercase tracking-[0.24em] text-neutral-500">
-          Convening Portfolio
+      <section className="mb-8 mt-24 md:mt-28">
+        <h2 className="mb-10 text-xs uppercase tracking-[0.24em] text-neutral-500">
+          Upcoming Convenings
         </h2>
-        <Image
-          src="/convene-posters.png"
-          alt="Architect convening portfolio"
-          width={1800}
-          height={1000}
-          className="w-full"
-        />
-      </section>
 
-      <section className="mt-20 mb-8">
-        <h2 className="mb-8 text-xs uppercase tracking-[0.24em] text-neutral-500">
-          Rooms & Salons
-        </h2>
-        <Image
-          src="/convene-photos.png"
-          alt="Architect rooms and salons"
-          width={1800}
-          height={1000}
-          className="w-full"
-        />
+        <div>
+          {upcomingConvenings.map((item) => (
+            <div
+              key={item.name}
+              className="flex flex-col gap-1 border-t border-black/10 py-5 md:flex-row md:items-baseline md:justify-between md:gap-8"
+            >
+              <p className="text-sm leading-6 text-black md:text-[0.95rem]">
+                {item.name}
+              </p>
+              <p className="shrink-0 text-sm text-neutral-500 md:text-right">
+                {item.place}
+              </p>
+            </div>
+          ))}
+          <div className="border-t border-black/10" />
+        </div>
       </section>
     </SiteShell>
   );

@@ -104,11 +104,19 @@ export default function Page() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group flex min-h-[11rem] flex-col justify-between border border-black/15 bg-white p-8 transition-colors hover:border-black md:min-h-[12.5rem] md:p-10"
+                className="group flex min-h-[11rem] cursor-pointer flex-col justify-between border border-black/15 bg-white p-8 transition-colors hover:border-black hover:bg-neutral-50 md:min-h-[12.5rem] md:p-10"
               >
-                <h2 className="text-2xl tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-3xl">
-                  {item.title}
-                </h2>
+                <div className="flex items-start justify-between gap-4">
+                  <h2 className="text-2xl tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-3xl">
+                    {item.title}
+                  </h2>
+                  <span
+                    aria-hidden
+                    className="mt-1 text-neutral-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-black"
+                  >
+                    →
+                  </span>
+                </div>
                 <p className="mt-8 max-w-xs text-sm leading-6 text-neutral-600">
                   {item.description}
                 </p>
@@ -133,7 +141,7 @@ export default function Page() {
               href="https://architect.systems/"
               target="_blank"
               rel="noreferrer"
-              className="underline underline-offset-4"
+              className="transition-opacity hover:opacity-55"
             >
               Architect Systems Capital Management
             </a>
@@ -158,9 +166,9 @@ export default function Page() {
                   href={person.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="block border border-black/15 p-6 transition-colors hover:border-black"
+                  className="group block cursor-pointer border border-black/15 p-6 transition-colors hover:border-black hover:bg-neutral-50"
                 >
-                  <p className="font-bold underline underline-offset-4">
+                  <p className="font-bold transition-opacity group-hover:opacity-70">
                     {person.name}
                   </p>
                   <p className="mt-3 text-sm leading-7 text-neutral-600">
@@ -174,7 +182,7 @@ export default function Page() {
               Our{" "}
               <Link
                 href="/people"
-                className="font-bold underline underline-offset-4"
+                className="font-bold transition-opacity hover:opacity-55"
               >
                 Advisors
               </Link>{" "}
