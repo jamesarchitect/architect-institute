@@ -12,7 +12,7 @@ const openGraphDescription =
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://dialogues.architect.institute",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://architect.institute",
   ),
   title: "Digital Risk Dialogues | The Architect Institute",
   description,
