@@ -60,8 +60,8 @@ export default function Page() {
       <section className="mx-auto w-full max-w-7xl px-6 py-28 md:px-12 md:py-36 lg:px-20">
         <div className="max-w-5xl">
           <h1 className="text-5xl leading-[0.95] tracking-[-0.06em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-7xl lg:text-8xl">
-            A long-horizon institute shaping the future of institutions,
-            technology, governance, & society.
+            A long-horizon institute shaping the future of technology,
+            institutions, culture, & humanity.
           </h1>
         </div>
       </section>
