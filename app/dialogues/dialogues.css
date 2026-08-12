@@ -1,0 +1,48 @@
+.dialogues-page {
+  animation: dialogues-fade-in 1.4s ease forwards;
+}
+
+@keyframes dialogues-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dialogues-filmstrip-track {
+  cursor: grab;
+  user-select: none;
+}
+
+.dialogues-filmstrip-track:active {
+  cursor: grabbing;
+}
+
+.dialogues-filmstrip-image {
+  pointer-events: none;
+}
+
+.dialogues-filmstrip-static {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.dialogues-filmstrip-static::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .dialogues-filmstrip-image {
+    height: auto;
+    width: 78vw;
+    max-height: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialogues-page {
+    animation: none;
+  }
+}
