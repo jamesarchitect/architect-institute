@@ -70,7 +70,7 @@ export function SiteHeader({ current }: { current?: string }) {
                   : "hover:text-neutral-700"
               }`}
             >
-              What We Do
+              WHAT WE DO
             </button>
 
             {/* Desktop dropdown */}
