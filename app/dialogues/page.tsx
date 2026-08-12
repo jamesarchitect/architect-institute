@@ -6,7 +6,7 @@ import { PhotoGrid } from "@/components/dialogues/photo-grid";
 export default function DialoguesPage() {
   return (
     <main className="dialogues-page min-h-screen overflow-x-hidden bg-black text-[#f5f4ef]">
-      <section className="mx-auto flex w-full max-w-xl flex-col items-center px-6 pb-28 pt-14 text-center md:px-8 md:pb-36 md:pt-20">
+      <section className="mx-auto flex w-full max-w-2xl flex-col items-center px-6 pb-28 pt-14 text-center md:px-8 md:pb-36 md:pt-20">
         <Image
           src="/images/architect-outline-logo.png"
           alt="Architect"
@@ -16,7 +16,7 @@ export default function DialoguesPage() {
           className="h-auto w-[4.75rem] opacity-90 md:w-[5.25rem]"
         />
 
-        <h1 className="mt-20 m-0 md:mt-28">
+        <h1 className="m-0 mt-20 md:mt-28">
           <Image
             src="/images/digital-risk-dialogues-logo.png"
             alt="Digital Risk Dialogues"
@@ -32,7 +32,7 @@ export default function DialoguesPage() {
           <p>Lake Tahoe</p>
         </div>
 
-        <p className="mt-14 max-w-md text-sm leading-relaxed tracking-[0.18em] text-[#f5f4ef]/55 [font-family:'Courier_New',monospace] md:mt-16">
+        <p className="mt-14 text-xs leading-relaxed tracking-[0.14em] text-[#f5f4ef]/55 [font-family:'Courier_New',monospace] md:mt-16 md:whitespace-nowrap md:text-[0.7rem] md:tracking-[0.16em]">
           The key to the future is the mastery of risk.
         </p>
       </section>
@@ -48,7 +48,7 @@ export default function DialoguesPage() {
             An initiative of The Architect Institute
           </p>
           <Link
-            href="https://architect.institute"
+            href="/"
             className="inline-block text-xs uppercase tracking-[0.24em] text-[#f5f4ef]/55 transition-colors hover:text-[#f5f4ef]/85 [font-family:'Courier_New',monospace]"
           >
             architect.institute

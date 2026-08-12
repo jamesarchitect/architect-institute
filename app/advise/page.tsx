@@ -1,20 +1,19 @@
-import Link from "next/link";
-import { Landmark } from "lucide-react";
+import { PageBackLink, SiteShell } from "@/components/site-shell";
 
 const sections = [
   {
-    title: "Field Stewardship",
+    title: "Field Building",
     items: [
       {
         name: "Protocol Labs",
-        href: "https://www.plresearch.org/areas/economies-governance",
-        description: "Field-Building: Governance & Economies",
+        href: "https://www.plrd.org/areas/economies-governance/",
+        description: "Governance & Economies",
       },
       {
         name: "Edge City",
         href: "https://www.edgecity.live/",
         description:
-          "Society incubation at the frontiers of technology, science, & culture",
+          "Society incubation at the frontiers of technology, science, and culture",
       },
     ],
   },
@@ -29,20 +28,17 @@ const sections = [
       {
         name: "[Redacted South American Nation]",
         href: "#",
-        description:
-          "A New Operating System for the State: DPI + AI + Crypto",
+        description: "A New Operating System for the State: DPI + AI + Crypto",
       },
       {
         name: "Crecimiento",
         href: "https://www.crecimiento.build/",
-        description:
-          "Transforming Argentina into a leading startup & AI hub",
+        description: "Transforming Argentina into a leading startup and AI hub",
       },
       {
         name: "Anden",
         href: "https://www.anden.tech/",
-        description:
-          "The first Digital SEZ in an emerging market",
+        description: "The first Digital SEZ in an emerging market",
       },
     ],
   },
@@ -68,8 +64,7 @@ const sections = [
       {
         name: "Cosmos",
         href: "https://cosmos.network/",
-        description:
-          "Sovereign & Central Bank Pilot",
+        description: "Sovereign & Central Bank Pilot",
       },
     ],
   },
@@ -77,61 +72,51 @@ const sections = [
 
 export default function AdvisePage() {
   return (
-    <main className="min-h-screen bg-[#f8f7f2] text-[#111] [font-family:'Courier_New',monospace]">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 lg:px-20">
-        <Link
-          href="/"
-          className="text-xs uppercase tracking-[0.22em] text-neutral-500"
-        >
-          ← The Architect Institute
-        </Link>
+    <SiteShell current="Advise">
+      <PageBackLink />
 
-        <div className="mt-20">
-          <div className="flex items-center gap-4">
-            <Landmark className="h-5 w-5" />
+      <div className="mt-16 md:mt-20">
+        <h1 className="text-5xl tracking-[-0.05em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-7xl">
+          Advise
+        </h1>
 
-            <h1 className="text-5xl tracking-[-0.05em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-7xl">
-              Advise
-            </h1>
-          </div>
-
-          <p className="mt-8 max-w-3xl text-xl leading-9 text-neutral-700">
-            Applied sovereign & strategic deployment embedded in live systems.
-          </p>
-        </div>
-
-        <div className="mt-24 space-y-24">
-          {sections.map((section) => (
-            <div key={section.title}>
-              <h2 className="mb-8 text-xs uppercase tracking-[0.24em] text-neutral-500">
-                {section.title}
-              </h2>
-
-              <div className="grid gap-6 md:grid-cols-2">
-                {section.items.map((item) => (
-                  <div
-                    key={item.name}
-                    className="border border-neutral-900/10 p-8"
-                  >
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block text-lg font-bold underline underline-offset-4"
-                    >
-                      {item.name}
-                    </a>
-
-                    <p className="mt-3 text-sm leading-7 text-neutral-600">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <p className="mt-8 max-w-2xl text-lg leading-8 text-neutral-600">
+          Applied sovereign and strategic deployment embedded in live systems.
+        </p>
       </div>
-    </main>
+
+      <div className="mb-8 mt-20 space-y-20">
+        {sections.map((section) => (
+          <section key={section.title}>
+            <h2 className="mb-8 text-xs uppercase tracking-[0.24em] text-neutral-500">
+              {section.title}
+            </h2>
+
+            <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+              {section.items.map((item) => (
+                <div
+                  key={item.name}
+                  className="border border-black/15 p-7 md:p-8"
+                >
+                  <a
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      item.href.startsWith("http") ? "noreferrer" : undefined
+                    }
+                    className="block text-lg font-bold underline underline-offset-4"
+                  >
+                    {item.name}
+                  </a>
+                  <p className="mt-3 text-sm leading-7 text-neutral-600">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </SiteShell>
   );
 }
