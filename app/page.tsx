@@ -50,19 +50,19 @@ const programmes: Programme[] = [
     status: "Flagship Programme",
     href: "/dialogues",
     statement:
-      "Explores how institutions understand and govern systemic technological risk that moves across traditional boundaries.",
+      "Addresses systemic technological risk that moves across institutions, markets and traditional boundaries.",
   },
   {
     title: "AI, Institutions & Democracy",
     status: "In Formation",
     statement:
-      "Explores how AI is changing collective decision-making, governance and institutional legitimacy.",
+      "Reimagines collective decision-making, governance and institutional legitimacy in an age of AI.",
   },
   {
     title: "Culture & the Human Future",
     status: "In Development",
     statement:
-      "Explores how technological change is reshaping creativity, identity, meaning and the cultures we build together.",
+      "Asks how technological change is altering creativity, identity, meaning and what it means to live together.",
   },
 ];
 
@@ -91,7 +91,7 @@ function ProgrammeCard({ programme }: { programme: Programme }) {
         </p>
       </div>
 
-      <p className="mt-6 max-w-3xl text-lg leading-8 text-neutral-600">
+      <p className="mt-6 max-w-3xl text-sm leading-6 text-neutral-600">
         {programme.statement}
       </p>
 
@@ -155,7 +155,7 @@ export default function Page() {
               adapt.
             </p>
 
-            <p className="text-sm leading-7 text-neutral-600 [font-family:ui-sans-serif,system-ui,sans-serif]">
+            <p className="text-2xl leading-[1.25] tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-4xl">
               Architect works in the space between what is changing and what
               must be rebuilt: we convene people who rarely work together,
               steward the ideas and networks that emerge, and build where
