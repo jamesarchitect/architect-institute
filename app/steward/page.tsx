@@ -9,30 +9,15 @@ const intelligence = [
   "Signals / emerging-issue work",
 ];
 
-const networks = [
-  { name: "Architect Council", status: "Coming Soon" },
-  { name: "Programme Councils", status: "Coming Soon" },
-  { name: "Expert Circles", status: "Coming Soon" },
-  { name: "Working Groups", status: "Coming Soon" },
-  { name: "Institutional partnerships", status: null },
-  { name: "Programme networks", status: null },
-];
-
 const fellows = [
   {
-    title: "Architect Fellows",
-    description:
-      "Practitioners and thinkers attached to enduring questions across Architect programmes.",
-    status: "Coming Soon",
-  },
-  {
-    title: "Practitioners-in-residence",
+    title: "Practitioners-in-Residence",
     description:
       "Builders and operators embedded for periods of focused inquiry and field work.",
     status: "Coming Soon",
   },
   {
-    title: "Digital Public Economies Fellowship",
+    title: "Digital Public Economies Fellows",
     description:
       "A curated cohort of sovereign operators and system builders shaping digital public infrastructure.",
     status: "Coming Soon",
@@ -49,18 +34,10 @@ export default function StewardPage() {
           Steward
         </h1>
 
-        <p className="mt-4 text-sm font-medium tracking-[0.02em] text-black md:text-base">
-          Make the room compound.
-        </p>
-
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-neutral-600">
+        <p className="mt-8 max-w-3xl text-lg leading-8 text-neutral-600">
           Architect carries relationships, ideas and questions forward —
           developing the knowledge, networks and people required to turn moments
           of alignment into enduring fields of work.
-        </p>
-
-        <p className="mt-6 text-sm uppercase tracking-[0.18em] text-neutral-500">
-          Knowledge + networks + people
         </p>
       </div>
 
@@ -100,21 +77,14 @@ export default function StewardPage() {
           II. Networks
         </h2>
         <p className="mb-8 max-w-2xl text-sm leading-7 text-neutral-600">
-          Architect does not simply convene people and then disperse them. We
-          build sustained networks around consequential questions.
+          Architect builds sustained networks around consequential questions.
         </p>
 
-        <div className="grid gap-4 md:grid-cols-2 md:gap-5">
-          {networks.map((item) => (
-            <div key={item.name} className="border border-black/15 p-7 md:p-8">
-              <p className="text-base tracking-[0.02em]">{item.name}</p>
-              {item.status ? (
-                <p className="mt-3 text-xs uppercase tracking-[0.22em] text-neutral-500">
-                  {item.status}
-                </p>
-              ) : null}
-            </div>
-          ))}
+        <div className="border border-black/15 p-7 md:p-8">
+          <p className="text-base tracking-[0.02em]">Architect Council</p>
+          <p className="mt-3 text-xs uppercase tracking-[0.22em] text-neutral-500">
+            Coming Soon
+          </p>
         </div>
       </section>
 
@@ -122,12 +92,8 @@ export default function StewardPage() {
         <h2 className="mb-3 text-xs uppercase tracking-[0.24em] text-neutral-500">
           III. Fellows & Future Leaders
         </h2>
-        <p className="mb-4 max-w-2xl text-base leading-7 text-black">
+        <p className="mb-8 max-w-2xl text-base leading-7 text-black">
           Cultivating the people who will carry new institutional ideas forward.
-        </p>
-        <p className="mb-8 max-w-2xl text-sm leading-7 text-neutral-600">
-          Researchers, builders and practitioners attached to specific
-          programmes — and future leadership initiatives still taking shape.
         </p>
 
         <div className="space-y-4 md:space-y-5">

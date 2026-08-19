@@ -20,21 +20,18 @@ const pillars = [
   {
     title: "Convene",
     href: "/convene",
-    principle: "Create the conditions.",
     description:
       "High-trust rooms for alignment, exchange, coordination & shared direction.",
   },
   {
     title: "Steward",
     href: "/steward",
-    principle: "Make the room compound.",
     description:
       "Research, networks, Fellows & long-arc institutional thinking.",
   },
   {
     title: "Build",
     href: "/build",
-    principle: "Turn insight into action.",
     description:
       "Strategic advice, field-building & practical institutional interventions.",
   },
@@ -45,20 +42,16 @@ type Programme = {
   status: string;
   href?: string;
   question: string;
-  description: string;
   areas?: string[];
-  closing?: string;
 };
 
 const programmes: Programme[] = [
   {
-    title: "Digital Risk Dialogues",
+    title: "Digital Risk",
     status: "Flagship Programme",
     href: "/dialogues",
     question:
       "How do institutions understand and govern systemic technological risk that moves across traditional boundaries?",
-    description:
-      "The Digital Risk Dialogues bring together senior leaders across national security, technology, finance, policy, digital assets, infrastructure and insurance. The programme extends beyond the annual Dialogue through a proposed Digital Risk Task Force, Council, Expert Circles, Policy Forum, evidence base and practical institutional interventions.",
   },
   {
     title: "AI, Institutions & Democracy",
@@ -74,8 +67,6 @@ const programmes: Programme[] = [
       "Representation & Legitimacy",
       "Public & Philanthropic Allocation",
     ],
-    description:
-      "Architect will convene policymakers, researchers, technologists, philanthropists and institutional leaders around these questions; steward the emerging field through research, networks and experimentation; and build through applied institutional pilots and mechanisms. Applied work can connect to Simocracy, Broad Listening and other experiments without requiring Architect to own every technology.",
   },
   {
     title: "Culture & the Human Future",
@@ -91,9 +82,6 @@ const programmes: Programme[] = [
       "Community & new ways of living",
       "The public imagination of the future",
     ],
-    description:
-      "Convene through Architect Festival, salons and cross-disciplinary gatherings. Steward through Fellows, commissions, essays, cultural research and sustained creative networks. Build through cultural interventions, exhibitions, experiments, collaborations and new institutional forms. The Architect Festival is the eventual flagship expression of this field.",
-    closing: "Not only what can we build — but what is worth building?",
   },
 ];
 
@@ -126,10 +114,6 @@ function ProgrammeCard({ programme }: { programme: Programme }) {
         {programme.question}
       </p>
 
-      <p className="mt-5 max-w-3xl text-sm leading-7 text-neutral-600">
-        {programme.description}
-      </p>
-
       {programme.areas ? (
         <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
           {programme.areas.map((area) => (
@@ -141,12 +125,6 @@ function ProgrammeCard({ programme }: { programme: Programme }) {
             </span>
           ))}
         </div>
-      ) : null}
-
-      {programme.closing ? (
-        <p className="mt-6 text-sm italic leading-7 text-neutral-700">
-          {programme.closing}
-        </p>
       ) : null}
 
       {programme.href ? (
@@ -204,23 +182,16 @@ export default function Page() {
 
           <div className="max-w-4xl space-y-8">
             <p className="text-2xl leading-[1.25] tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-4xl">
-              We are entering an era of extraordinary technological acceleration
-              alongside deep institutional fragmentation, social atomisation,
-              and declining trust.
+              Extraordinary technological acceleration is reshaping society
+              faster than many of our institutions and systems of trust can
+              adapt.
             </p>
 
             <p className="text-lg leading-8 text-neutral-700 md:text-xl md:leading-9">
-              The defining questions of the next decade increasingly sit between
-              institutions rather than neatly inside them. Architect exists to
-              work in those gaps — bringing together people who rarely work
-              together, stewarding the ideas and networks that emerge, and
-              building where existing institutions or mechanisms are
-              insufficient.
-            </p>
-
-            <p className="text-2xl leading-[1.25] tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-4xl">
-              We convene exceptional people and work with institutions shaping
-              the future.
+              Architect works in the space between what is changing and what
+              must be rebuilt: we convene people who rarely work together,
+              steward the ideas and networks that emerge, and build where
+              existing institutions and mechanisms are insufficient.
             </p>
           </div>
         </div>
@@ -235,45 +206,29 @@ export default function Page() {
         <div className="grid gap-12 md:grid-cols-[0.25fr_1fr]">
           <SectionLabel>What We Do</SectionLabel>
 
-          <div>
-            <p className="mb-8 text-xs uppercase tracking-[0.24em] text-neutral-500">
-              Convene → Steward → Build
-            </p>
-
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
-              {pillars.map((item) => (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className="group flex min-h-[13rem] cursor-pointer flex-col justify-between border border-black/15 bg-white p-8 transition-colors hover:border-black hover:bg-neutral-50 md:p-9"
-                >
-                  <div>
-                    <div className="flex items-start justify-between gap-3">
-                      <h2 className="text-2xl tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-3xl">
-                        {item.title}
-                      </h2>
-                      <span
-                        aria-hidden
-                        className="mt-1 text-neutral-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-black"
-                      >
-                        →
-                      </span>
-                    </div>
-                    <p className="mt-4 text-sm font-medium leading-6 text-black">
-                      {item.principle}
-                    </p>
-                  </div>
-                  <p className="mt-8 text-sm leading-6 text-neutral-600">
-                    {item.description}
-                  </p>
-                </Link>
-              ))}
-            </div>
-
-            <p className="mt-10 max-w-3xl text-sm leading-7 text-neutral-600">
-              Convene creates the room. Steward makes it compound. Build turns
-              insight into action.
-            </p>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+            {pillars.map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                className="group flex min-h-[11rem] cursor-pointer flex-col justify-between border border-black/15 bg-white p-8 transition-colors hover:border-black hover:bg-neutral-50 md:p-9"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <h2 className="text-2xl tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-3xl">
+                    {item.title}
+                  </h2>
+                  <span
+                    aria-hidden
+                    className="mt-1 text-neutral-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-black"
+                  >
+                    →
+                  </span>
+                </div>
+                <p className="mt-8 text-sm leading-6 text-neutral-600">
+                  {item.description}
+                </p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -304,7 +259,7 @@ export default function Page() {
         <div className="grid gap-12 md:grid-cols-[0.25fr_1fr]">
           <SectionLabel>Capital</SectionLabel>
 
-          <div className="max-w-4xl space-y-4">
+          <div className="max-w-4xl">
             <p className="text-2xl leading-[1.3] tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-4xl">
               ARCHITECT deploys patient, long-horizon capital via{" "}
               <a
@@ -315,10 +270,6 @@ export default function Page() {
               >
                 Architect Systems Capital Management
               </a>
-            </p>
-            <p className="text-sm leading-7 text-neutral-500">
-              Part of the wider Architect ecosystem — distinct from the
-              Institute&apos;s Convene, Steward and Build work.
             </p>
           </div>
         </div>

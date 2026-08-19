@@ -89,24 +89,6 @@ const sections = [
   },
 ];
 
-const arcs = [
-  {
-    from: "LATAM Tech Leaders",
-    through: "coordination",
-    to: "Crecimiento",
-  },
-  {
-    from: "The Andes & The Steppe",
-    through: "institutional exploration",
-    to: "Anden",
-  },
-  {
-    from: "Governance & Economies",
-    through: "field-building",
-    to: "Broad Listening / Simocracy / applied mechanisms",
-  },
-];
-
 export default function BuildPage() {
   return (
     <SiteShell current="Build">
@@ -117,20 +99,10 @@ export default function BuildPage() {
           Build
         </h1>
 
-        <p className="mt-4 text-sm font-medium tracking-[0.02em] text-black md:text-base">
-          Turn insight into action.
-        </p>
-
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-neutral-600">
+        <p className="mt-8 max-w-3xl text-lg leading-8 text-neutral-600">
           Where Architect identifies an important institutional gap, we work
           with partners to translate insight into practical systems, mechanisms
           and institutions.
-        </p>
-
-        <p className="mt-6 max-w-3xl text-sm leading-7 text-neutral-600">
-          Architect does not need to build or own everything itself. Depending
-          on the problem, we advise, field-build, design, pilot, coordinate or
-          help create something new.
         </p>
       </div>
 
@@ -151,38 +123,6 @@ export default function BuildPage() {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="mt-24">
-        <h2 className="mb-4 text-xs uppercase tracking-[0.24em] text-neutral-500">
-          From room to mechanism
-        </h2>
-        <p className="mb-8 max-w-2xl text-sm leading-7 text-neutral-600">
-          Some of the strongest examples began through convening or
-          field-building and subsequently became more substantive —
-          demonstrating Convene → Steward → Build as an operating model.
-        </p>
-
-        <div className="space-y-0 border-t border-black/10">
-          {arcs.map((arc) => (
-            <div
-              key={arc.from}
-              className="border-b border-black/10 py-5 text-sm leading-7"
-            >
-              <p className="text-black">
-                {arc.from}
-                <span className="text-neutral-400"> → </span>
-                {arc.through}
-                <span className="text-neutral-400"> → </span>
-                {arc.to}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-6 text-xs uppercase tracking-[0.18em] text-neutral-500">
-          idea → field → coalition → mechanism → adoption
-        </p>
       </section>
 
       <div className="mb-8 mt-24 space-y-20">

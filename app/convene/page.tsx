@@ -58,11 +58,7 @@ export default function ConvenePage() {
           Convene
         </h1>
 
-        <p className="mt-4 text-sm font-medium tracking-[0.02em] text-black md:text-base">
-          Create the conditions.
-        </p>
-
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
+        <p className="mt-8 max-w-2xl text-lg leading-8 text-neutral-600">
           Closed, high-trust rooms for alignment, exchange, coordination &amp;
           shared direction.
         </p>
@@ -78,12 +74,6 @@ export default function ConvenePage() {
           </div>
         ))}
       </div>
-
-      <p className="mt-16 max-w-2xl text-sm leading-7 text-neutral-600 md:mt-20">
-        Architect convenes not simply to exchange ideas, but to create the trust
-        and alignment from which longer-term work can emerge. The value of a
-        room is what survives it.
-      </p>
 
       <section className="mt-28 md:mt-36">
         <Link href="/dialogues" className="group block">

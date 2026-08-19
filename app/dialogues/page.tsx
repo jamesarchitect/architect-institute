@@ -35,6 +35,19 @@ export default function DialoguesPage() {
         <p className="mt-14 text-xs leading-relaxed tracking-[0.14em] text-[#f5f4ef]/55 [font-family:'Courier_New',monospace] md:mt-16 md:whitespace-nowrap md:text-[0.7rem] md:tracking-[0.16em]">
           The key to the future is the mastery of risk.
         </p>
+
+        <div className="mt-10 max-w-lg space-y-5 text-sm leading-7 tracking-[0.02em] text-[#f5f4ef]/55 [font-family:'Courier_New',monospace] md:mt-12">
+          <p>
+            The Digital Risk Dialogues bring together senior leaders across
+            national security, technology, finance, policy, digital assets,
+            infrastructure and insurance.
+          </p>
+          <p>
+            The programme extends beyond the annual Dialogue through a proposed
+            Digital Risk Task Force, Council, Expert Circles, Policy Forum,
+            evidence base and practical institutional interventions.
+          </p>
+        </div>
       </section>
 
       <PhotoGrid />
