@@ -41,8 +41,7 @@ type Programme = {
   title: string;
   status: string;
   href?: string;
-  question: string;
-  areas?: string[];
+  statement: string;
 };
 
 const programmes: Programme[] = [
@@ -50,38 +49,20 @@ const programmes: Programme[] = [
     title: "Digital Risk",
     status: "Flagship Programme",
     href: "/dialogues",
-    question:
-      "How do institutions understand and govern systemic technological risk that moves across traditional boundaries?",
+    statement:
+      "Explores how institutions understand and govern systemic technological risk that moves across traditional boundaries.",
   },
   {
     title: "AI, Institutions & Democracy",
     status: "In Formation",
-    question:
-      "How does AI change the way humans make collective decisions and govern institutions?",
-    areas: [
-      "Collective Intelligence",
-      "Preference Discovery",
-      "Institutional Decision-Making",
-      "New Coordination Mechanisms",
-      "Democratic Deliberation",
-      "Representation & Legitimacy",
-      "Public & Philanthropic Allocation",
-    ],
+    statement:
+      "Explores how AI is changing collective decision-making, governance and institutional legitimacy.",
   },
   {
     title: "Culture & the Human Future",
     status: "In Development",
-    question:
-      "How does technological change reshape what it means to be human — and the cultures we build together?",
-    areas: [
-      "Creativity & authorship",
-      "Identity & belonging",
-      "Attention, meaning & agency",
-      "Work, purpose & the good life",
-      "Art, architecture, music & storytelling",
-      "Community & new ways of living",
-      "The public imagination of the future",
-    ],
+    statement:
+      "Explores how technological change is reshaping creativity, identity, meaning and the cultures we build together.",
   },
 ];
 
@@ -111,21 +92,8 @@ function ProgrammeCard({ programme }: { programme: Programme }) {
       </div>
 
       <p className="mt-6 max-w-3xl text-base leading-7 text-black md:text-lg md:leading-8">
-        {programme.question}
+        {programme.statement}
       </p>
-
-      {programme.areas ? (
-        <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
-          {programme.areas.map((area) => (
-            <span
-              key={area}
-              className="text-xs tracking-[0.04em] text-neutral-500"
-            >
-              {area}
-            </span>
-          ))}
-        </div>
-      ) : null}
 
       {programme.href ? (
         <p className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-neutral-600 transition-colors group-hover:text-black">
@@ -187,7 +155,7 @@ export default function Page() {
               adapt.
             </p>
 
-            <p className="text-lg leading-8 text-neutral-700 md:text-xl md:leading-9">
+            <p className="text-xl leading-[1.3] tracking-[-0.03em] text-neutral-700 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-2xl md:leading-[1.35]">
               Architect works in the space between what is changing and what
               must be rebuilt: we convene people who rarely work together,
               steward the ideas and networks that emerge, and build where
@@ -211,9 +179,9 @@ export default function Page() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="group flex min-h-[11rem] cursor-pointer flex-col justify-between border border-black/15 bg-white p-8 transition-colors hover:border-black hover:bg-neutral-50 md:p-9"
+                className="group flex min-h-[11rem] cursor-pointer flex-col border border-black/15 bg-white p-8 transition-colors hover:border-black hover:bg-neutral-50 md:min-h-[12.5rem] md:p-9"
               >
-                <div className="flex items-start justify-between gap-3">
+                <div className="flex h-10 items-start justify-between gap-3">
                   <h2 className="text-2xl tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-3xl">
                     {item.title}
                   </h2>
@@ -224,7 +192,7 @@ export default function Page() {
                     →
                   </span>
                 </div>
-                <p className="mt-8 text-sm leading-6 text-neutral-600">
+                <p className="mt-6 text-sm leading-6 text-neutral-600">
                   {item.description}
                 </p>
               </Link>
