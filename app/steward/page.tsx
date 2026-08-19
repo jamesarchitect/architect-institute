@@ -1,12 +1,20 @@
 import { PageBackLink, SiteShell } from "@/components/site-shell";
 
 const intelligence = [
-  "Strategic Intelligence",
-  "Research",
-  "Policy Shaping",
-  "Blueprint Development",
-  "Statements, Letters & Op-Eds",
-  "Signals / emerging-issue work",
+  {
+    title: "Strategic Intelligence",
+    description: "Signals, emerging issues & forward-looking analysis.",
+  },
+  {
+    title: "Research & Public Ideas",
+    description:
+      "Research, essays, statements, letters & other public intellectual work.",
+  },
+  {
+    title: "Policy & Institutional Design",
+    description:
+      "Policy shaping, strategic frameworks & blueprint development.",
+  },
 ];
 
 const fellows = [
@@ -74,10 +82,13 @@ export default function StewardPage() {
           infrastructure.
         </SectionIntro>
 
-        <div className="grid gap-4 md:grid-cols-2 md:gap-5">
+        <div className="grid gap-4 md:grid-cols-3 md:gap-5">
           {intelligence.map((item) => (
-            <div key={item} className="border border-black/15 p-7 md:p-8">
-              <p className="text-base tracking-[0.02em]">{item}</p>
+            <div key={item.title} className="border border-black/15 p-7 md:p-8">
+              <p className="text-base tracking-[0.02em]">{item.title}</p>
+              <p className="mt-4 text-sm leading-7 text-neutral-600">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
