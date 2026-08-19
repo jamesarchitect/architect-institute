@@ -155,7 +155,7 @@ export default function Page() {
               adapt.
             </p>
 
-            <p className="text-2xl leading-[1.25] tracking-[-0.03em] md:text-4xl">
+            <p className="text-xl leading-[1.3] tracking-[-0.03em] text-neutral-600 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-3xl md:leading-[1.3]">
               Architect works in the space between what is changing and what
               must be rebuilt: we convene people who rarely work together,
               steward the ideas and networks that emerge, and build where
