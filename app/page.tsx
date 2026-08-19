@@ -82,7 +82,7 @@ const people = [
 function ProgrammeCard({ programme }: { programme: Programme }) {
   const body = (
     <>
-      <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between md:gap-8">
+      <div className="flex min-h-[2.75rem] flex-col gap-2 md:flex-row md:items-baseline md:justify-between md:gap-8">
         <h2 className="text-2xl tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-3xl">
           {programme.title}
         </h2>
@@ -91,7 +91,7 @@ function ProgrammeCard({ programme }: { programme: Programme }) {
         </p>
       </div>
 
-      <p className="mt-6 max-w-3xl text-base leading-7 text-black md:text-lg md:leading-8">
+      <p className="mt-6 max-w-3xl text-lg leading-8 text-neutral-600">
         {programme.statement}
       </p>
 
@@ -155,7 +155,7 @@ export default function Page() {
               adapt.
             </p>
 
-            <p className="text-xl leading-[1.3] tracking-[-0.03em] text-neutral-700 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-2xl md:leading-[1.35]">
+            <p className="text-sm leading-7 text-neutral-600 [font-family:ui-sans-serif,system-ui,sans-serif]">
               Architect works in the space between what is changing and what
               must be rebuilt: we convene people who rarely work together,
               steward the ideas and networks that emerge, and build where
