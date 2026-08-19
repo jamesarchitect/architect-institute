@@ -6,8 +6,7 @@ import { useEffect, useId, useRef, useState } from "react";
 const whatWeDo = [
   { href: "/convene", label: "Convene" },
   { href: "/steward", label: "Steward" },
-  { href: "/advise", label: "Advise" },
-  { href: "/cultivate", label: "Cultivate" },
+  { href: "/build", label: "Build" },
 ];
 
 export function SiteHeader({ current }: { current?: string }) {

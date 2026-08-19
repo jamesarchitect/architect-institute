@@ -16,26 +16,84 @@ function Divider() {
   return <div className="my-20 h-px w-full bg-black/10" />;
 }
 
-const functions = [
+const pillars = [
   {
     title: "Convene",
     href: "/convene",
-    description: "High-trust gatherings and dialogues",
+    principle: "Create the conditions.",
+    description:
+      "High-trust rooms for alignment, exchange, coordination & shared direction.",
   },
   {
     title: "Steward",
     href: "/steward",
-    description: "Research, ideas and institutional thinking",
+    principle: "Make the room compound.",
+    description:
+      "Research, networks, Fellows & long-arc institutional thinking.",
   },
   {
-    title: "Advise",
-    href: "/advise",
-    description: "Strategic counsel and implementation",
+    title: "Build",
+    href: "/build",
+    principle: "Turn insight into action.",
+    description:
+      "Strategic advice, field-building & practical institutional interventions.",
+  },
+];
+
+type Programme = {
+  title: string;
+  status: string;
+  href?: string;
+  question: string;
+  description: string;
+  areas?: string[];
+  closing?: string;
+};
+
+const programmes: Programme[] = [
+  {
+    title: "Digital Risk Dialogues",
+    status: "Flagship Programme",
+    href: "/dialogues",
+    question:
+      "How do institutions understand and govern systemic technological risk that moves across traditional boundaries?",
+    description:
+      "The Digital Risk Dialogues bring together senior leaders across national security, technology, finance, policy, digital assets, infrastructure and insurance. The programme extends beyond the annual Dialogue through a proposed Digital Risk Task Force, Council, Expert Circles, Policy Forum, evidence base and practical institutional interventions.",
   },
   {
-    title: "Cultivate",
-    href: "/cultivate",
-    description: "Networks and future leaders",
+    title: "AI, Institutions & Democracy",
+    status: "In Formation",
+    question:
+      "How does AI change the way humans make collective decisions and govern institutions?",
+    areas: [
+      "Collective Intelligence",
+      "Preference Discovery",
+      "Institutional Decision-Making",
+      "New Coordination Mechanisms",
+      "Democratic Deliberation",
+      "Representation & Legitimacy",
+      "Public & Philanthropic Allocation",
+    ],
+    description:
+      "Architect will convene policymakers, researchers, technologists, philanthropists and institutional leaders around these questions; steward the emerging field through research, networks and experimentation; and build through applied institutional pilots and mechanisms. Applied work can connect to Simocracy, Broad Listening and other experiments without requiring Architect to own every technology.",
+  },
+  {
+    title: "Culture & the Human Future",
+    status: "In Development",
+    question:
+      "How does technological change reshape what it means to be human — and the cultures we build together?",
+    areas: [
+      "Creativity & authorship",
+      "Identity & belonging",
+      "Attention, meaning & agency",
+      "Work, purpose & the good life",
+      "Art, architecture, music & storytelling",
+      "Community & new ways of living",
+      "The public imagination of the future",
+    ],
+    description:
+      "Convene through Architect Festival, salons and cross-disciplinary gatherings. Steward through Fellows, commissions, essays, cultural research and sustained creative networks. Build through cultural interventions, exhibitions, experiments, collaborations and new institutional forms. The Architect Festival is the eventual flagship expression of this field.",
+    closing: "Not only what can we build — but what is worth building?",
   },
 ];
 
@@ -51,6 +109,75 @@ const people = [
     href: "https://www.linkedin.com/in/rgjamenyogbo/",
   },
 ];
+
+function ProgrammeCard({ programme }: { programme: Programme }) {
+  const body = (
+    <>
+      <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between md:gap-8">
+        <h2 className="text-2xl tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-3xl">
+          {programme.title}
+        </h2>
+        <p className="shrink-0 text-xs uppercase tracking-[0.22em] text-neutral-500">
+          {programme.status}
+        </p>
+      </div>
+
+      <p className="mt-6 max-w-3xl text-base leading-7 text-black md:text-lg md:leading-8">
+        {programme.question}
+      </p>
+
+      <p className="mt-5 max-w-3xl text-sm leading-7 text-neutral-600">
+        {programme.description}
+      </p>
+
+      {programme.areas ? (
+        <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+          {programme.areas.map((area) => (
+            <span
+              key={area}
+              className="text-xs tracking-[0.04em] text-neutral-500"
+            >
+              {area}
+            </span>
+          ))}
+        </div>
+      ) : null}
+
+      {programme.closing ? (
+        <p className="mt-6 text-sm italic leading-7 text-neutral-700">
+          {programme.closing}
+        </p>
+      ) : null}
+
+      {programme.href ? (
+        <p className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-neutral-600 transition-colors group-hover:text-black">
+          View programme
+          <span
+            aria-hidden
+            className="transition-transform duration-300 group-hover:translate-x-1"
+          >
+            →
+          </span>
+        </p>
+      ) : null}
+    </>
+  );
+
+  if (programme.href) {
+    return (
+      <Link
+        href={programme.href}
+        className="group block cursor-pointer border border-black/15 p-8 transition-colors hover:border-black hover:bg-neutral-50 md:p-10"
+      >
+        {body}
+      </Link>
+    );
+  }
+
+  return (
+    <div className="border border-black/15 p-8 md:p-10">{body}</div>
+  );
+}
 
 export default function Page() {
   return (
@@ -75,11 +202,20 @@ export default function Page() {
         <div className="grid gap-12 md:grid-cols-[0.25fr_1fr]">
           <SectionLabel>Core Thesis</SectionLabel>
 
-          <div className="max-w-4xl space-y-10">
+          <div className="max-w-4xl space-y-8">
             <p className="text-2xl leading-[1.25] tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-4xl">
               We are entering an era of extraordinary technological acceleration
               alongside deep institutional fragmentation, social atomisation,
               and declining trust.
+            </p>
+
+            <p className="text-lg leading-8 text-neutral-700 md:text-xl md:leading-9">
+              The defining questions of the next decade increasingly sit between
+              institutions rather than neatly inside them. Architect exists to
+              work in those gaps — bringing together people who rarely work
+              together, stewarding the ideas and networks that emerge, and
+              building where existing institutions or mechanisms are
+              insufficient.
             </p>
 
             <p className="text-2xl leading-[1.25] tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-4xl">
@@ -99,28 +235,61 @@ export default function Page() {
         <div className="grid gap-12 md:grid-cols-[0.25fr_1fr]">
           <SectionLabel>What We Do</SectionLabel>
 
-          <div className="grid grid-cols-1 gap-4 pt-2 md:grid-cols-2 md:gap-5 md:pt-4">
-            {functions.map((item) => (
-              <Link
-                key={item.title}
-                href={item.href}
-                className="group flex min-h-[11rem] cursor-pointer flex-col justify-between border border-black/15 bg-white p-8 transition-colors hover:border-black hover:bg-neutral-50 md:min-h-[12.5rem] md:p-10"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <h2 className="text-2xl tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-3xl">
-                    {item.title}
-                  </h2>
-                  <span
-                    aria-hidden
-                    className="mt-1 text-neutral-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-black"
-                  >
-                    →
-                  </span>
-                </div>
-                <p className="mt-8 max-w-xs text-sm leading-6 text-neutral-600">
-                  {item.description}
-                </p>
-              </Link>
+          <div>
+            <p className="mb-8 text-xs uppercase tracking-[0.24em] text-neutral-500">
+              Convene → Steward → Build
+            </p>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+              {pillars.map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="group flex min-h-[13rem] cursor-pointer flex-col justify-between border border-black/15 bg-white p-8 transition-colors hover:border-black hover:bg-neutral-50 md:p-9"
+                >
+                  <div>
+                    <div className="flex items-start justify-between gap-3">
+                      <h2 className="text-2xl tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-3xl">
+                        {item.title}
+                      </h2>
+                      <span
+                        aria-hidden
+                        className="mt-1 text-neutral-400 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-black"
+                      >
+                        →
+                      </span>
+                    </div>
+                    <p className="mt-4 text-sm font-medium leading-6 text-black">
+                      {item.principle}
+                    </p>
+                  </div>
+                  <p className="mt-8 text-sm leading-6 text-neutral-600">
+                    {item.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+
+            <p className="mt-10 max-w-3xl text-sm leading-7 text-neutral-600">
+              Convene creates the room. Steward makes it compound. Build turns
+              insight into action.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="programmes"
+        className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-20"
+      >
+        <Divider />
+
+        <div className="grid gap-12 md:grid-cols-[0.25fr_1fr]">
+          <SectionLabel>Fields of Work</SectionLabel>
+
+          <div className="space-y-8 md:space-y-10">
+            {programmes.map((programme) => (
+              <ProgrammeCard key={programme.title} programme={programme} />
             ))}
           </div>
         </div>
@@ -135,17 +304,23 @@ export default function Page() {
         <div className="grid gap-12 md:grid-cols-[0.25fr_1fr]">
           <SectionLabel>Capital</SectionLabel>
 
-          <p className="max-w-4xl text-2xl leading-[1.3] tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-4xl">
-            ARCHITECT deploys patient, long-horizon capital via{" "}
-            <a
-              href="https://architect.systems/"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-opacity hover:opacity-55"
-            >
-              Architect Systems Capital Management
-            </a>
-          </p>
+          <div className="max-w-4xl space-y-4">
+            <p className="text-2xl leading-[1.3] tracking-[-0.03em] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-4xl">
+              ARCHITECT deploys patient, long-horizon capital via{" "}
+              <a
+                href="https://architect.systems/"
+                target="_blank"
+                rel="noreferrer"
+                className="transition-opacity hover:opacity-55"
+              >
+                Architect Systems Capital Management
+              </a>
+            </p>
+            <p className="text-sm leading-7 text-neutral-500">
+              Part of the wider Architect ecosystem — distinct from the
+              Institute&apos;s Convene, Steward and Build work.
+            </p>
+          </div>
         </div>
       </section>
 
